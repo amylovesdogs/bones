@@ -10,24 +10,16 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import Signup from './components/Signup'
 
-const ExampleApp = connect(
-  ({ auth }) => ({ user: auth })
-) (
-  ({ user, children }) =>
-    <div>
-      <nav>
-        {user ? <WhoAmI/> : <Login/>}
-        <Signup/>
-      </nav> 
-      {children}
-    </div>
-)
+import Layout from './components/Layout';
+import Login from './components/Login';
+
+
 
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={ExampleApp}>
-        <IndexRedirect to="/cart" />
+      <Route path="/" component={Layout}>
+        <Route path="/login" component={Login}/>
         <Route path="/cart" component={Cart} />
       </Route>
     </Router>
