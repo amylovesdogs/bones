@@ -1,35 +1,5 @@
 import React from 'react'
 
-// export const Login = ({ login }) => (
-//   <form onSubmit={evt => {
-//     evt.preventDefault()
-//     login(evt.target.username.value, evt.target.password.value)
-//   } }>
-//     <input name="username" />
-//     <input name="password" type="password" />
-//     <input type="submit" value="Login" />
-//   </form>
-// )
-
-// const Login = ({login}) => {
-//   return (
-//     <div className="row">
-//       <div className="col-md-offset-5 col-md-3">
-//         <div className="form-login">
-//         <h4>Welcome back.</h4>
-//         <input type="text" id="userName" className="form-control input-sm chat-input" placeholder="username" />
-//         <input type="text" id="userPassword" className="form-control input-sm chat-input" placeholder="password" />
-//         <div className="wrapper">
-//         <span className="group-btn">     
-//           <a href="#" className="btn btn-primary btn-md">login <i className="fa fa-sign-in"></i></a>
-//         </span>
-//         </div>
-//         </div>
-//       </div>
-//     </div>    
-//   );
-// }
-
 const Login = ({login}) => {
   const onLoginSubmit = evt => {
     evt.preventDefault();
