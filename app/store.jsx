@@ -13,4 +13,4 @@ const store = createStore(rootReducer, composeEnhancers(
 export default store
 
 // Set the auth info at start
-store.dispatch(whoami()) 
+store.dispatch(whoami())
