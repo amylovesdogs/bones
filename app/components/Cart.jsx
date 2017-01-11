@@ -2,21 +2,28 @@ import React from 'react';
 import CartItem from './CartItem';
 
 const Cart = ({ cart }) => (
-	<div>
+	<div className="container-fluid">
 
-		<div className="row">
-			<div className="col-xs-4">Item(s)</div>
-			<div className="col-xs-2">Price</div>
-			<div className="col-xs-2">Quantity</div>
-		</div>
+	<table className="table">
 
-		<ul>
+	  <thead>
+	    <tr>
+	      <th className="col-md-2">Item(s)</th>
+	      <th className="col-md-2">Quantity</th>
+	      <th className="col-md-2">Unit Price</th>
+	      <th className="col-md-2">Subtotal</th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
 			{
-				Object.keys(cart.items).map(item => (
-					<CartItem item={item} />
+				Object.keys(cart.items).map(key => (
+					<CartItem item={cart.items[key]} />
 				))
 			}
-		</ul>
+	  </tbody>
+
+	</table>
 
 	</div>
 )

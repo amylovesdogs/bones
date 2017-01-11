@@ -1,7 +1,10 @@
 const newState = {
 	items: {
 		1: {
-			name: 'Test'
+			name: 'BLAHBLAH',
+			quantity: 1,
+			price: 349.99,
+			photoUrl: 'http://i2.kym-cdn.com/entries/icons/facebook/000/013/564/aP2dv.jpg'
 		}
 	}
 };

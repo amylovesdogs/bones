@@ -23,7 +23,7 @@ export default () => {
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li><a href="/login"><span className="glyphicon glyphicon-user"></span> Login</a></li>
-            <li><a href="#"><span className="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+            <li><a href="/cart"><span className="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
           </ul>
         </div>
       </div>

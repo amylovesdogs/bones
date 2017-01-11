@@ -9,11 +9,7 @@ import Cart from './components/Cart'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import Signup from './components/Signup'
-
 import Layout from './components/Layout';
-import Login from './components/Login';
-
-
 
 render (
   <Provider store={store}>
