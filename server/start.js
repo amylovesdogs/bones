@@ -2,7 +2,7 @@
 
 const express = require('express')
 const bodyParser = require('body-parser')
-const {resolve} = require('path')
+const {resolve, join} = require('path')
 const passport = require('passport')
 
 // Bones has a symlink from node_modules/APP to the root of the app.
@@ -36,6 +36,7 @@ module.exports = app
   
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
+  .use(express.static(join(__dirname, '/../node_modules/bootstrap')))
 
   // Serve our api
   .use('/api', require('./api'))

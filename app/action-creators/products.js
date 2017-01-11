@@ -10,6 +10,7 @@ export const getProducts = () => {
   return dispatch => {
     axios.get('/api/products')
       .then(response => {
+        console.log("got back: ", response.data);
         dispatch(receiveProducts(response.data));
       });
   };

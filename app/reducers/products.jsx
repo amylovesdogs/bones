@@ -1,21 +1,21 @@
-import { RECEIVE_ALBUMS, RECEIVE_ALBUM } from '../constants';
+import { RECEIVE_PRODUCTS, RECEIVE_PRODUCT } from '../constants';
 
 const initialProductState = {
   selected: {},
   list: []
 };
 
-export default function (state = initialArtistState, action) {
+export default function (state = initialProductState, action) {
 
   const newState = Object.assign({}, state);
 
   switch (action.type) {
 
-    case RECEIVE_ARTISTS:
+    case RECEIVE_PRODUCTS:
       newState.list = action.products;
       break;
 
-    case RECEIVE_ARTIST:
+    case RECEIVE_PRODUCT:
       newState.selected = action.product;
       break;
 
