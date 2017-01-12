@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Login = ({login}) => {
+export const Login = ({login}) => {
   const onLoginSubmit = evt => {
     evt.preventDefault();
     login(evt.target.username.value, evt.target.password.value);

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('APP/db');
-const Product = db.model('product');
+const Product = db.model('products');
 
 router.get('/', (req, res, next) => {
   Product.findAll()
@@ -15,19 +15,20 @@ router.get('/:productId', (req, res, next) => {
   .catch(next);
 });
 
-router.get('/categories/:category', (req, res, next) => {
-  Product.find({
-    where: req.params.category
-  })
-  .then(products => res.send(products))
-  .catch(next);
-});
-
 router.post('/', (req, res, next) => {
-  console.log(req.body);
   Product.create(req.body)
   .then(() => res.sendStatus(201))
   .catch(next);
 }); 
+
+router.put('/:productId', (req, res, next) => {
+  Product.update(req.body, {
+    where: {
+      id: req.params.productId
+    }
+  })
+  .then(() => res.sendStatus(204))
+  .catch(next)
+})
 
 module.exports = router;
