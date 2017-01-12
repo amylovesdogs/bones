@@ -22,7 +22,11 @@ router.param('orderId', (req, res, next, orderId) => {
 });
 
 router.get('/:orderId', (req, res, next) =>  {
-  res.json(req.order);
+  Order.findById(req.params.orderId, {
+    include: [Product]
+  })
+  .then(order => res.json(order))
+  .catch(next);
 });
 
 router.put('/:orderId', (req, res, next) => {
@@ -30,19 +34,25 @@ router.put('/:orderId', (req, res, next) => {
     where: {
       id: req.params.orderId
     }
-  });
+  })
+  .then(order => res.sendStatus(204))
+  .catch(next);
 });
 
-router.post('/addProduct/:orderId/:productId', (req, res, next) => {
+router.post('/:orderId/products', (req, res, next) => {
   OrderProducts.create({
     order_id: req.params.orderId,
-    product_id: req.params.productId
+    product_id: req.body.productId
   })
   .then(() => res.sendStatus(201))
   .catch(next);
 });
 
-router.delete('/removeProduct/:orderId/:productId', (req, res, next) => {
+router.put('/:orderId/products/:productId', (req, res, next) => {
+  // Order.update()
+});
+
+router.delete('/:orderId/products/:productId', (req, res, next) => {
   OrderProducts.destroy({
     where: {
       order_id: req.params.orderId,
