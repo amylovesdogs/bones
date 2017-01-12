@@ -3,6 +3,7 @@
 const Sequelize = require('sequelize');
 const db = require('APP/db');
 
+// OB/DYS: look out for validation opportunities
 const Product = db.define('product', {
   name: Sequelize.STRING,
   description: Sequelize.TEXT,

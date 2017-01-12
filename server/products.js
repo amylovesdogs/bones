@@ -15,6 +15,8 @@ router.get('/:productId', (req, res, next) => {
   .catch(next);
 });
 
+
+// OB/DYS: GET /products?category=:categoryHere is more RESTful / standard
 router.get('/categories/:category', (req, res, next) => {
   Product.find({
     where: req.params.category
@@ -23,9 +25,10 @@ router.get('/categories/:category', (req, res, next) => {
   .catch(next);
 });
 
+// OB/DYS: think about authorization - who can use this route?
 router.post('/', (req, res, next) => {
-  console.log(req.body);
-  Product.create(req.body)
+  console.log(req.body); // OB/DYS: chop down logs
+  Product.create(req.body) // OB/DYS: watch out for the open-ended stuff this allows
   .then(() => res.sendStatus(201))
   .catch(next);
 }); 
