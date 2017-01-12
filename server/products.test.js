@@ -22,16 +22,15 @@ const productsData = [
   }
 ]
 
-let products;
+let products; // OB/DYS: does not have to be *this* global
 
-describe('/api/products', (done) => {
+describe('/api/products', () => {
 
   before(() => {
     return Product.bulkCreate(productsData, {returning: true})
     .then(foundProducts => {
       products = foundProducts;
-    })
-    .then(done);
+    });
   });
 
   after(() => {
@@ -40,14 +39,13 @@ describe('/api/products', (done) => {
     });
   })
 
-  it('gets all products', (done) => {
-      request(app)
+  it('gets all products', () => {
+      return request(app)
         .get('/api/products')
         .expect(200)
         .expect((res) => {
           assert.lengthOf(res.body, 2);
-        })
-        .end(done);
+        });
   });
 
   it('gets a single product by id', (done) => {
@@ -78,6 +76,7 @@ describe('/api/products', (done) => {
               name: 'Nimbus 2002'
             }
           })
+          // OB/DYS: you should be able to flatten this out, instead of nested .thens
           .then(product => {
             expect(product).to.not.be.null;
             assert.equal(product.name, 'Nimbus 2002');
@@ -99,6 +98,7 @@ describe('/api/products', (done) => {
               name: 'Nimbus 2003'
             }
           })
+          // OB/DYS: you should be able to flatten this out, instead of nested .thens
           .then(product => {
             expect(product).to.not.be.null;
             assert.equal(product.name, 'Nimbus 2003');         

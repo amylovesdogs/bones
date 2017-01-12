@@ -29,6 +29,7 @@ router.post('/', (req, res, next) => {
 }); 
 
 router.put('/:categoryId', (req, res, next) => {
+  // OB/DYS: no changes ever submitted?
   Category.update({
     where: {
       id: req.params.categoryId
