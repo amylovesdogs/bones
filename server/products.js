@@ -24,8 +24,9 @@ router.get('/categories/:category', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  Product.findOrCreate(req.body)
-  .then(() => sendStatus(201))
+  console.log(req.body);
+  Product.create(req.body)
+  .then(() => res.sendStatus(201))
   .catch(next);
 }); 
 
