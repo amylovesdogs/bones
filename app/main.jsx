@@ -12,9 +12,14 @@ import Signup from './components/Signup'
 import Layout from './components/Layout';
 import Products from './containers/ProductsContainer';
 
+import { getCategories } from './reducers/categories';
 import { getProducts, getProductFromId } from './action-creators/products';
 
-const onProductsEnter= () => {
+const onEnter = () => {
+  store.dispatch(getCategories());
+};
+
+const onProductsEnter = () => {
   store.dispatch(getProducts());
 };
 

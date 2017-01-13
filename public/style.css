@@ -38,3 +38,7 @@
 	display: block;
 	margin: 10px;
 }
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
