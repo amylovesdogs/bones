@@ -14,7 +14,27 @@
     padding-top: 30px;
 }
 
+.cart-main-table {
+	border: solid 1px black;
+}
+
+.cart-side-table {
+	border: solid 1px black;
+	width: 25%;
+	float: right;
+}
+
 .cart-item-photo {
 	width: 100px;
 	height: 100px;
+}
+
+.cart-item-update-btn {
+	display: block;
+	margin: 10px;
+}
+
+.cart-item-remove-btn {
+	display: block;
+	margin: 10px;
 }

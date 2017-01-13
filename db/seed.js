@@ -12,7 +12,7 @@ const seedCategories = () => db.Promise.map([
 
 const seedProducts = () => db.Promise.map([
   {name: 'Nimbus 2000', description: 'blah', price: 349.99, 'quantity': 100, photoURL: 'http://vignette4.wikia.nocookie.net/harrypotter/images/0/0f/Nimbus_2000_1.jpg/revision/latest?cb=20150530185551'}
-], product => db.model('products').create(product))
+], product => db.model('products').create(product));
 
 const setProductCategory = () => {
 	return db.model('products').findOne({})
@@ -25,7 +25,7 @@ const setProductCategory = () => {
 			return product.addCategory(category);
 		})
 	})
-}
+};
 
 db.didSync
   .then(() => db.sync({force: true}))
