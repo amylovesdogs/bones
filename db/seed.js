@@ -6,8 +6,8 @@ const seedUsers = () => db.Promise.map([
 ], user => db.model('users').create(user));
 
 const seedCategories = () => db.Promise.map([
-  {name: 'broomsticks'},
-  {name: 'wands'},
+  {name: 'Broomsticks'},
+  {name: 'Wands'},
 ], category => db.model('categories').create(category));
 
 const seedProducts = () => db.Promise.map([

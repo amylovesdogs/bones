@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const reducer = (state=null, action) => {
+const reducer = (state=[], action) => {
 	switch(action.type) {
 		case RECEIVE_CATEGORIES:
 			return action.categories;
@@ -23,3 +23,5 @@ export const getCategories = () => {
       });
   };
 };
+
+export default reducer;

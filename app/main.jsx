@@ -26,7 +26,7 @@ const onProductsEnter = () => {
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Layout}>
+      <Route path="/" component={Layout} onEnter={onEnter}>
         <Route path="/login" component={Login}/>
         <Route path="/cart" component={Cart} />
         <Route path="/products" component={Products} onEnter={onProductsEnter}/>

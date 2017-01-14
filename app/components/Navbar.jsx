@@ -17,7 +17,7 @@ export default () => {
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
             <li className="active"><Link to="#">Home</Link></li>
-            <CategoriesMenu categories={categories}/>
+            <CategoriesMenu/>
             <li><Link to="#">Products</Link></li>
             <li><Link to="#">Deals</Link></li>
             <li><Link to="#">Stores</Link></li>
