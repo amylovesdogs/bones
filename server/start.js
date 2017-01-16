@@ -38,6 +38,9 @@ module.exports = app
   .use(express.static(resolve(__dirname, '..', 'public')))
   .use(express.static(join(__dirname, '/../node_modules/bootstrap')))
 
+  // Serve static files from node_modules
+  .use(express.static(resolve(__dirname, '..', 'node_modules')))
+
   // Serve our api
   .use('/api', require('./api'))
 
