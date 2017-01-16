@@ -3,23 +3,8 @@ const router = express.Router();
 
 const db = require('APP/db');
 const Order = db.model('order');
-const Product = db.model('product');
-const OrderProducts = db.model('orderProducts');
-
-router.post('/', function(req, res, next) {
-  Order.create(req.body)
-  .then(() => res.sendStatus(201))
-  .catch(next)
-});
-
-router.param('orderId', (req, res, next, orderId) => {
-  Order.findById(orderId)
-  .then(order => {
-    req.order = order
-    next();
-  })
-  .catch(next);
-});
+const Product = db.model('products');
+const OrderProducts = db.model('order_products');
 
 router.get('/:orderId', (req, res, next) =>  {
   Order.findById(req.params.orderId, {
@@ -28,6 +13,26 @@ router.get('/:orderId', (req, res, next) =>  {
   .then(order => res.json(order))
   .catch(next);
 });
+
+router.post('/', function(req, res, next) {
+  let prods = [2,3];
+  let createdOrder;
+  Order.create({
+    address: req.body.address,
+    user_id: req.body.user
+  })
+  .then(order => createdOrder = order)
+  .then(() => db.Promise.map(prods, productId => Product.findById(productId)))
+  .then(products => db.Promise.map(products, product => createdOrder.addProduct(product, {price: product.price})))
+  .then(() => OrderProducts.calculateTotal(createdOrder.id))
+  .then(total => createdOrder.update({
+    totalPrice: total
+  }))
+  .then(() => res.sendStatus(201))
+  .catch(console.log);
+});
+
+
 
 router.put('/:orderId', (req, res, next) => {
   Order.update(req.body, {
