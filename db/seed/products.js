@@ -17,7 +17,11 @@ const products =
 	  quantity: 999, 
 	  photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Number-2-pencil.jpg/2560px-Number-2-pencil.jpg',
 	  category: 'Muggle Stuff'
-	}
+	},
+  {name: 'Nimbus 2000', description: 'blah', price: 34999, quantity: 100, photoURL: 'http://vignette4.wikia.nocookie.net/harrypotter/images/0/0f/Nimbus_2000_1.jpg/revision/latest?cb=20150530185551'},
+  {name: 'Computer Programming for Beginners', description: 'Learn the Basics of Java', price: '1182', quantity: 10, photoURL: 'http://amazon.com'},
+  {name: ' A Complete Guide For Beginners', description: 'Become An Expert In Python Programming ', price: '1438', quantity: 15, photoURL: 'http://amazon.com'},
+  {name: "Ry's Git Tutorial", description: 'Git is a free version control system', price: '199', quantity: 25, photoURL: 'http://amazon.com'}
 ]
 
 const setProductCategory = (product_id, category_id) => {
