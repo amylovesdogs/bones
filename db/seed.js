@@ -4,6 +4,7 @@ const seedUsers = require('./seed/users');
 const seedCategories = require('./seed/categories');
 const seedProducts = require('./seed/products');
 
+
 db.didSync
   .then(() => db.sync({force: true}))
   .then(seedUsers)
