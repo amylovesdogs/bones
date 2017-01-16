@@ -3,6 +3,7 @@ const db = require('APP/db')
 const seedUsers = require('./seed/users');
 const seedCategories = require('./seed/categories');
 const seedProducts = require('./seed/products');
+const seedReviews = require('./seed/reviews');
 
 db.didSync
   .then(() => db.sync({force: true}))
@@ -12,5 +13,7 @@ db.didSync
   .then(categories => console.log(`Seeded ${categories.length} categories OK`))
   .then(seedProducts)
   .then(products => console.log(`Seeded ${products.length} products OK`))
-  .catch(error => console.error(error))    
+  .then(seedReviews)
+  .then(reviews => console.log(`Seeded ${reviews.length} reviews OK`))
+  .catch(error => console.error(error))
   .finally(() => db.close());

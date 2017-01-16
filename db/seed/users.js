@@ -1,6 +1,6 @@
 const db = require('APP/db');
 
-const users = 
+const users =
 [
 	{"name":"Brandon Simmons","email":"bsimmons0@amazon.co.jp","password":"SgQKfwogyL"},
 	{"name":"Lois Welch","email":"lwelch1@google.ca","password":"1RqyTpsi"},
@@ -21,7 +21,9 @@ const users =
 	{"name":"Carolyn Cook","email":"ccookg@unblog.fr","password":"sTz3qc"},
 	{"name":"Justin Lynch","email":"jlynchh@nps.gov","password":"eRAZyGQyQqq"},
 	{"name":"Michael Bennett","email":"mbennetti@drupal.org","password":"0akDY2l"},
-	{"name":"Philip Mills","email":"pmillsj@wikipedia.org","password":"fATl5THyXqg"}
+	{"name":"Philip Mills","email":"pmillsj@wikipedia.org","password":"fATl5THyXqg"},
+	{name: 'Harry Potter', email: 'hpotter@hogwarts.edu',password: 'seeker123'},
+  {name: 'Draco Malfoy', email: 'dmalfoy@hogwarts.edu', password: 'getpotter'}
 ];
 
 const seedUsers = () => db.Promise.map(users, user => db.model('users').create(user));
