@@ -19,7 +19,7 @@ router.post('/', (req, res, next) => {
   Product.create(req.body)
   .then(() => res.sendStatus(201))
   .catch(next);
-}); 
+});
 
 router.put('/:productId', (req, res, next) => {
   Product.update(req.body, {
