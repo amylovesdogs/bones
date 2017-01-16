@@ -1,11 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router';
+import {LinkContainer} from 'react-router-bootstrap';
 import {NavDropdown, MenuItem} from 'react-bootstrap';
 
 const CategoriesMenu = ({ categories }) => (
 	<NavDropdown title='Categories' id='categories'>
 		{
-			categories.map(category => (<MenuItem key={category.id}>{category.name}</MenuItem>))
+			categories.map(category => (
+				<LinkContainer to={`/categories/${category.id}`} key={category.id}>
+					<MenuItem>{category.name}</MenuItem>
+				</LinkContainer>
+			))
 		}
 	</NavDropdown>
 );

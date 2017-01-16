@@ -19,6 +19,11 @@ export const getCategories = () => {
     axios.get('/api/categories')
     	.then(res => res.data)
       .then(categories => {
+        categories = categories.sort((catA, catB) => {
+          if (catA.name < catB.name) return -1;
+          if (catA.name > catB.name) return 1;
+          return 0;
+        });
         dispatch(receiveCategories(categories));
       });
   };
