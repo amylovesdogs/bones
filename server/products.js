@@ -19,7 +19,7 @@ router.post('/', (req, res, next) => {
   Product.create(req.body)
   .then(() => res.sendStatus(201))
   .catch(next);
-}); 
+});
 
 router.put('/:productId', (req, res, next) => {
   Product.update(req.body, {
@@ -30,5 +30,16 @@ router.put('/:productId', (req, res, next) => {
   .then(() => res.sendStatus(204))
   .catch(next)
 })
+
+router.delete('/:productId', (req, res, next) => {
+  Product.destroy({
+    where: {
+      id: req.params.productId
+    }
+  })
+  .then(() => res.sendStatus(204))
+  .catch(next);
+})
+
 
 module.exports = router;
