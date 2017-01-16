@@ -11,6 +11,8 @@ const initialState = {
 	subTotal: 349.99
 };
 
+import axios from 'axios';
+
 const reducer = (state = initialState, action) => {
 	let newState = Object.assign({}, state);
 	switch(action.type) {
@@ -62,5 +64,13 @@ export const updateQuantity = (id, quantity) => ({
 	id,
 	quantity
 });
+
+const PLACE_ORDER = 'PLACE_ORDER';
+export const placeOrder = (order) => {
+  return dispatch => {
+    axios.post('/api/orders', order)
+    	.then(res => res.data)
+  };
+};
 
 export default reducer;

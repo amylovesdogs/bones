@@ -4,7 +4,17 @@ const Sequelize = require('sequelize');
 const db = require('APP/db');
 
 const Order = db.define('order', {
-  address: Sequelize.STRING,
+  address: {
+  	type: Sequelize.STRING,
+  	allowNull: false
+  },
+  email: {
+  	type: Sequelize.STRING,
+  	allowNull: false,
+  	validate: {
+  		isEmail: true
+  	}
+  },
   totalPrice: Sequelize.INTEGER
 }, {
   instanceMethods: {
