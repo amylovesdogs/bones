@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('APP/db');
-const Review = db.model('review');
+const Review = db.model('reviews');
 const Product = db.model('products');
 
 
