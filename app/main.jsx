@@ -31,7 +31,7 @@ render (
       <Route path="/" component={Layout} onEnter={onEnter}>
         <Route path="/login" component={Login}/>
         <Route path="/cart" component={Cart} />
-        <Route path="/products" component={Products} onEnter={onProductsEnter}/>
+        <Route path="/products" component={Products}/>
         <Route path="products/:productId" component={SingleProductContainer} onEnter={onSingleProductEnter}/>
       </Route>
     </Router>
