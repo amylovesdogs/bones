@@ -4,7 +4,10 @@ const Sequelize = require('sequelize');
 const db = require('APP/db');
 
 const Category = db.define('categories', {
-	name: Sequelize.STRING
+	name: {
+		type: Sequelize.STRING,
+		unique: true
+	}
 });
 
 module.exports = Category;
