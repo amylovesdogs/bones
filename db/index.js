@@ -22,6 +22,7 @@ const db = module.exports = new Sequelize(url, {
   }
 })
 
+
 // pull in our models
 require('./models')
 

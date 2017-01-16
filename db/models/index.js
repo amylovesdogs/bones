@@ -6,8 +6,12 @@
 
 const User = require('./user');
 const Product = require('./product');
+const Order = require('./order');
 const Category = require('./category');
 const Review = require('./review');
+
+Order.belongsTo(User);
+Order.belongsToMany(Product, {through: require('./orderProducts')});
 
 Category.belongsToMany(Product, { through: 'product_categories' });
 Product.belongsToMany(Category, { through: 'product_categories' });
