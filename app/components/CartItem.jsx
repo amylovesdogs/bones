@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+// OB/DYS: keep local and global state separate and have functions to update each individually?
 class CartItem extends Component {
 	constructor (props) {
 		super(props);

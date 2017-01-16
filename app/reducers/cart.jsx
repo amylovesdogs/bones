@@ -4,11 +4,11 @@ const initialState = {
 			id: 1,
 			name: 'BLAHBLAH',
 			quantity: 1,
-			price: 349.99,
+			price: 349.99,	// OB/DYS: keep consistent with your models!
 			photoUrl: 'http://i2.kym-cdn.com/entries/icons/facebook/000/013/564/aP2dv.jpg'
 		}
 	},
-	subTotal: 349.99
+	subTotal: 349.99 	// OB/DYS: consider a getter for this functionality
 };
 
 import axios from 'axios';
