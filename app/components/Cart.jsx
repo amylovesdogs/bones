@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItem from './CartItem';
+import {Link} from 'react-router';
 
 const Cart = ({ cart }) => {
 
@@ -20,7 +21,7 @@ const Cart = ({ cart }) => {
 
 			  <thead>
 			    <tr>
-			      <th className="col-md-4 text-center">Item(s)</th>
+			      <th className="col-md-3 text-center">Item(s)</th>
 			      <th className="col-md-2 text-center">Quantity</th>
 			      <th className="col-md-2 text-center">Unit Price</th>
 			      <th className="col-md-2 text-center">Sub-total</th>
@@ -60,6 +61,8 @@ const Cart = ({ cart }) => {
 				</tbody>
 
 			</table>
+
+			<Link className="btn btn-success btn-checkout" to="/checkout">Checkout</Link>
 
 		</div>
 

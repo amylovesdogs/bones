@@ -15,11 +15,13 @@ router.get('/:orderId', (req, res, next) =>  {
 });
 
 router.post('/', function(req, res, next) {
-  let prods = [2,3];
+  console.log(req.body.address);
+  console.log(req.body.email);
+  console.log(req.body.items);
   let createdOrder;
   Order.create({
     address: req.body.address,
-    user_id: req.body.user
+    email: req.body.email
   })
   .then(order => createdOrder = order)
   .then(() => db.Promise.map(prods, productId => Product.findById(productId)))
@@ -31,8 +33,6 @@ router.post('/', function(req, res, next) {
   .then(() => res.sendStatus(201))
   .catch(console.log);
 });
-
-
 
 router.put('/:orderId', (req, res, next) => {
   Order.update(req.body, {
@@ -67,6 +67,5 @@ router.delete('/:orderId/products/:productId', (req, res, next) => {
   .then(() => res.sendStatus(204))
   .catch(next);
 });
-
 
 module.exports = router;

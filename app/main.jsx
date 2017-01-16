@@ -11,6 +11,7 @@ import WhoAmI from './components/WhoAmI'
 import Signup from './components/Signup'
 import Layout from './components/Layout';
 import Products from './containers/ProductsContainer';
+import Checkout from './components/Checkout';
 
 import { getCategories } from './reducers/categories';
 import { getProducts, getProductFromId } from './action-creators/products';
@@ -30,6 +31,7 @@ render (
         <Route path="/login" component={Login}/>
         <Route path="/cart" component={Cart} />
         <Route path="/products" component={Products} onEnter={onProductsEnter}/>
+        <Route path="/checkout" component={Checkout}/>
       </Route>
     </Router>
   </Provider>,
