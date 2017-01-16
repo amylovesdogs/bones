@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.mgn-top-md {
+  margin-top: 20px;
+}
+
 .mgn-top-lg {
     margin-top: 30px;
 }
@@ -55,3 +59,4 @@
 	width: 50px;
 	height: 50px
 }
+

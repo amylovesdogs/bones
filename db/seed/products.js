@@ -38,21 +38,21 @@ const products =
 	 description: 'Learn the Basics of Java',
 	 price: 1182,
 	 quantity: 10,
-	 photoURL: 'https://images-na.ssl-images-amazon.com/images/I/51lZBHKsmjL.jpg',
+	 photoURL: 'https://pbs.twimg.com/media/CcuYraMXIAE5Yn6.jpg',
 	 category: 'Muggle Stuff'
   },
   {name: ' A Complete Guide For Beginners',
 	 description: 'Become An Expert In Python Programming ',
 	 price: 1438,
 	 quantity: 15,
-	 photoURL: 'https://images-na.ssl-images-amazon.com/images/I/518HWeONOhL.jpg',
+	 photoURL: 'https://s-media-cache-ak0.pinimg.com/736x/df/bd/62/dfbd620eb7ab1af7dddb3fce67101f09.jpg',
 	 category: 'Muggle Stuff'
 	},
   {name: "Ry's Git Tutorial",
 	 description: 'Git is a free version control system',
 	 price: 199,
 	 quantity: 25,
-	 photoURL: 'https://images-na.ssl-images-amazon.com/images/I/41BMP%2B44bJL.jpg',
+	 photoURL: 'https://pbs.twimg.com/media/Cr7mS_OWcAA7Hzt.jpg',
 	 category: 'Muggle Stuff'
 	}
 ]
