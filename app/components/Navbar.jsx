@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import CategoriesMenu from './CategoriesMenu';
+import ProductMenu from './ProductMenu';
 
 export default () => {
   return (
@@ -19,7 +19,6 @@ export default () => {
             <li className="active"><Link to="#">Home</Link></li>
             <ProductMenu/>
             <li><Link to="#">Deals</Link></li>
-            <li><Link to="#">Stores</Link></li>
             <li><Link to="#">Contact</Link></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
