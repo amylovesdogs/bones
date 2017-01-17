@@ -1,5 +1,5 @@
 import React from 'react'
-import chai, {expect} from 'chai'                                                   
+import chai, {expect} from 'chai'
 chai.use(require('chai-enzyme')())
 import {shallow} from 'enzyme'
 import {spy} from 'sinon'
@@ -25,12 +25,12 @@ describe('<Login />', () => {
   })
 
   it('has a login button', () => {
-    const submit = root.find('input[type="submit"]')
+    const submit = root.find('button[type="submit"]')
     expect(submit).to.have.length(1)
   })
 
   describe('when submitted', () => {
-    const login = spy()    
+    const login = spy()
     const root = shallow(<Login login={login}/>)
     const submitEvent = {
       preventDefault: spy(),
@@ -43,10 +43,10 @@ describe('<Login />', () => {
     beforeEach('submit', () => {
       login.reset()
       submitEvent.preventDefault.reset()
-      root.simulate('submit', submitEvent)      
+      root.find('form').simulate('submit', submitEvent);
     })
 
-    it('calls props.login with credentials', () => {      
+    it('calls props.login with credentials', () => {
       expect(login).to.have.been.calledWith(
         submitEvent.target.username.value,
         submitEvent.target.password.value,
