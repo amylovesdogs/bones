@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router';
 
-class CartItem extends Component {
+class CheckoutItem extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
@@ -29,32 +28,28 @@ class CartItem extends Component {
 		const removeItem = this.props.removeItem;
 		return (
 			<tr>
-			  <td className="col-md-2">
-    			<div className="text-center">
-  	  			<img src={item.photoURL} className="cart-item-photo" style={{margin: "5px"}}></img>
-  	  			<Link to={`/products/${item.id}`} style={{margin: "5px"}}>{item.name}</Link>
-    			</div>
+			  <td className="col-md-2 text-center">
+				  	<div>{item.name}</div>
 			  </td>
 			  <td className="col-md-2 text-center">
-			  	<input 
-			  		type="numeric" defaultValue={item.quantity} onChange={this.handleQuantityChange}/>
+			  	<input type="numeric" defaultValue={item.quantity} onChange={this.handleQuantityChange}/>
 			  	<div>
 				  	<button
 				  		style={{margin: "10px"}}
-				  		className='btn btn-success'
+				  		className="btn btn-success"
 				  		onClick={() => updateQuantity(item.id, this.state.quantity)}>
 				  		Update
 				  	</button>
 				  	<button 
 				  		style={{margin: "10px"}}
-				  		className='btn btn-danger cart-item-remove-btn'
+				  		className="btn btn-danger cart-item-remove-btn"
 				  		onClick={() => removeItem(item.id)}>
 				  		Remove
 				  	</button>
 			  	</div>
 			  </td>
-			  <td className="col-md-1 text-center">{`$${item.price / 100}`}</td>
-			 	<td className="col-md-1 text-center">{`$${item.quantity * item.price / 100}`}</td>
+			  <td className="col-md-1 text-center">{`$${item.price}`}</td>
+			 	<td className="col-md-1 text-center">{`$${item.quantity * item.price}`}</td>
 			</tr>
 		);
 	}
@@ -78,4 +73,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect (
   () => ({}),
   mapDispatchToProps
-) (CartItem);
+) (CheckoutItem);

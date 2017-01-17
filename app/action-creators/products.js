@@ -6,13 +6,20 @@ export const receiveProducts = products => ({
     products
 });
 
-export const getProducts = () => {
+export const getProducts = (categoryId) => {
   return dispatch => {
-    axios.get('/api/products')
+    if (!categoryId) {
+      axios.get('/api/products')
       .then(response => {
         console.log("got back: ", response.data);
         dispatch(receiveProducts(response.data));
       });
+    } else {
+      axios.get('/api/products/categories/'+categoryId)
+      .then(response => {
+        dispatch(receiveProducts(response.data));
+      });
+    }
   };
 };
 

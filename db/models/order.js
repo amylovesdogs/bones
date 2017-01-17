@@ -5,6 +5,7 @@ const db = require('APP/db');
 const Product = require('./product');
 const OrderProducts = require('./orderProducts');
 
+
 const Order = db.define('order', {
   address: {
   	type: Sequelize.STRING,
@@ -49,7 +50,7 @@ const Order = db.define('order', {
     }
   },
   instanceMethods: {
-    calculateTotal: function(products) {
+    calculateTotal: function() {
       this.totalPrice = products.reduce((total, product) => total + b.price, 0);
     }
   }

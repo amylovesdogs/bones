@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import CartItem from './CartItem';
+import CheckoutItem from './CheckoutItem';
 import CheckoutForm from './CheckoutForm';
+import {Link} from 'react-router';
 
 class Checkout extends Component{
 	constructor(props) {
@@ -41,20 +42,26 @@ class Checkout extends Component{
 
 		const cart = this.props.cart;
 
-		return (
+		const empty = (
+			<div className="text-center">
+				<h3>You have no items in your cart</h3>
+				<Link className="btn btn-success" to="/cart">Back to cart</Link>
+			</div>
+		);
+
+		if (!Object.keys(cart.items).length) return empty;
+		else return (
 
 			<div className="container-fluid">
-
-				<CheckoutForm handleChange={this.handleChange}/>
 
 				<table className="table table-bordered table-responsive">
 
 				  <thead>
 				    <tr>
-				      <th className="col-md-4 text-center">Item(s)</th>
+				      <th className="col-md-2 text-center">Item(s)</th>
 				      <th className="col-md-2 text-center">Quantity</th>
-				      <th className="col-md-2 text-center">Unit Price</th>
-				      <th className="col-md-2 text-center">Sub-total</th>
+				      <th className="col-md-1 text-center">Unit Price</th>
+				      <th className="col-md-1 text-center">Sub-total</th>
 				    </tr>
 				  </thead>
 
@@ -62,34 +69,38 @@ class Checkout extends Component{
 						{
 							Object.keys(cart.items).map(key => {
 								let item = cart.items[key];
-								return <CartItem item={item} key={item.id}/>
+								return <CheckoutItem item={item} key={item.id}/>
 							})
 						}
 				  </tbody>
 
 				</table>
 
-				<table className="table table-bordered cart-side-table">
+				<div className="cart-side-table col-md-4">
+					<table className="table table-bordered">
 
-					<tbody>
-						<tr>
-							<th className="col-md-4">Sub-total</th>
-							<td className="col-md-2">{cart.subTotal}</td>
-						</tr>
-						<tr>
-							<th className="col-md-4">Tax</th>
-							<td className="col-md-2">{cart.subTotal * 0.07}</td>
-						</tr>
-						<tr>
-							<th className="col-md-4">Total</th>
-							<td className="col-md-2">{cart.subTotal * 1.07}</td>
-						</tr>
-						
-					</tbody>
+						<tbody>
+							<tr>
+								<th className="col-md-2 text-center">Sub-total</th>
+								<td className="col-md-2 text-center">{cart.subTotal}</td>
+							</tr>
+							<tr>
+								<th className="col-md-2 text-center">Tax</th>
+								<td className="col-md-2 text-center">{cart.subTotal * 0.07}</td>
+							</tr>
+							<tr>
+								<th className="col-md-2 text-center">Total</th>
+								<td className="col-md-2 text-center">{cart.subTotal * 1.07}</td>
+							</tr>
+							
+						</tbody>
 
-				</table>
+					</table>
 
-				<button className="btn btn-success btn-checkout" onClick={this.handleSubmit}>Place Order</button>
+					<button className="btn btn-success" style={{width: "100%"}} onClick={this.handleSubmit}>Place Order</button>
+				</div>
+
+				<CheckoutForm handleChange={this.handleChange}/>
 
 			</div>
 

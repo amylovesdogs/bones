@@ -3,19 +3,19 @@
 const Sequelize = require('sequelize');
 const db = require('APP/db');
 
-const Review = db.define('review', {
+const Review = db.define('reviews', {
   content: {
   	type: Sequelize.TEXT,
 		validate: {
-			len: [100,5000],
+			len: [20,5000],
 		},
   	allowNull: false
   },
 	rating: {
   	type: Sequelize.INTEGER,
 		validate: {
-      max: 1,
-      min: 5
+      max: 5,
+      min: 1
 		},
   	allowNull: false
   },
