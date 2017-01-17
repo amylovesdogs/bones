@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 
 class CartItem extends Component {
 	constructor (props) {
@@ -29,26 +30,31 @@ class CartItem extends Component {
 		return (
 			<tr>
 			  <td className="col-md-2">
-			  	<div>{item.name}</div>
+    			<div className="text-center">
+  	  			<img src={item.photoURL} className="cart-item-photo" style={{margin: "5px"}}></img>
+  	  			<Link to={`/products/${item.id}`} style={{margin: "5px"}}>{item.name}</Link>
+    			</div>
+			  </td>
+			  <td className="col-md-2 text-center">
+			  	<input 
+			  		type="numeric" defaultValue={item.quantity} onChange={this.handleQuantityChange}/>
 			  	<div>
-			  		<img src={item.photoUrl} className="cart-item-photo"/>
+				  	<button
+				  		style={{margin: "10px"}}
+				  		className='btn btn-success'
+				  		onClick={() => updateQuantity(item.id, this.state.quantity)}>
+				  		Update
+				  	</button>
+				  	<button 
+				  		style={{margin: "10px"}}
+				  		className='btn btn-danger cart-item-remove-btn'
+				  		onClick={() => removeItem(item.id)}>
+				  		Remove
+				  	</button>
 			  	</div>
 			  </td>
-			  <td className="col-md-2">
-			  	<input type="numeric" defaultValue={item.quantity} onChange={this.handleQuantityChange}/>
-			  	<button 
-			  		className='btn btn-success cart-item-update-btn'
-			  		onClick={() => updateQuantity(item.id, this.state.quantity)}>
-			  		Update
-			  	</button>
-			  	<button 
-			  		className='btn btn-danger cart-item-remove-btn'
-			  		onClick={() => removeItem(item.id)}>
-			  		Remove
-			  	</button>
-			  </td>
-			  <td className="col-md-2">{`$${item.price}`}</td>
-			 	<td className="col-md-2">{`$${item.quantity * item.price}`}</td>
+			  <td className="col-md-1 text-center">{`$${item.price / 100}`}</td>
+			 	<td className="col-md-1 text-center">{`$${item.quantity * item.price / 100}`}</td>
 			</tr>
 		);
 	}

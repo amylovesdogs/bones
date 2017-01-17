@@ -9,13 +9,15 @@ const CheckoutForm = (props) => {
   }
 
   return (
-    <div className="well">
+
+    <div className="well col-md-4">
+      <h2 className="text-center" style={{marginTop: "0px", marginBottom: "20px"}}>Shipping Address</h2>
       <form className="form-horizontal">
         <fieldset>
 
           <div className="form-group">
-            <label className="col-xs-2 control-label">Full Name</label>
-            <div className="col-md-4">
+            <label className="col-xs-2 control-label">Name</label>
+            <div className="col-md-10">
               <input 
               name="name" 
               type="name" 
@@ -27,7 +29,7 @@ const CheckoutForm = (props) => {
 
           <div className="form-group">
             <label className="col-xs-2 control-label">Email</label>
-            <div className="col-md-4">
+            <div className="col-md-10">
               <input 
               name="email" 
               type="email" 
@@ -38,8 +40,8 @@ const CheckoutForm = (props) => {
           </div>
 
           <div className="form-group">
-            <label className="col-xs-2 control-label">Street Address</label>
-            <div className="col-md-4">
+            <label className="col-xs-2 control-label">Address</label>
+            <div className="col-md-10">
               <input 
               name="street" 
               type="street" 
@@ -51,7 +53,7 @@ const CheckoutForm = (props) => {
 
           <div className="form-group">
             <label className="col-xs-2 control-label">City</label>
-            <div className="col-md-4">
+            <div className="col-md-10">
               <input 
               name="city" 
               type="city" 
@@ -63,7 +65,7 @@ const CheckoutForm = (props) => {
 
           <div className="form-group">
             <label className="col-xs-2 control-label">State</label>
-            <div className="col-md-4">
+            <div className="col-md-10">
               <input 
               name="state" 
               type="state" 
@@ -75,7 +77,7 @@ const CheckoutForm = (props) => {
 
           <div className="form-group">
             <label className="col-xs-2 control-label">Country</label>
-            <div className="col-md-4">
+            <div className="col-md-10">
               <input 
               name="country" 
               type="country" 
