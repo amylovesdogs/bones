@@ -1,13 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Reviews from '../components/Reviews'
+import {addItem} from  '../reducers/cart';
+import Reviews from '../components/Reviews';
 
-const Product = ({product}) => {
+const Product = ({product, addItem}) => {
   console.log(product);
 
   const reviewSection = product.reviews ? 
     <div>
-      <h4>{product.reviews.length} Customer Reviews</h4>
+      <h4>{product.reviews.length || 'No'} Customer Reviews</h4>
       <Reviews reviews={product.reviews}/>     
     </div> : 
     null;
@@ -27,7 +28,7 @@ const Product = ({product}) => {
             {product.averageReview && [...Array(product.averageReview)].map((review, i) => <img src="/images/star.png" key={i} className="star"/>)}
           </div>
           <h2>${product.price / 100}</h2>
-          <button type="button" className="btn btn-success">Add to Cart</button>
+          <button type="button" className="btn btn-success" onClick={() => addItem(product)}>Add to Cart</button>
         </div>
       </div>
       <div className="row mgn-top-xl">
@@ -37,4 +38,7 @@ const Product = ({product}) => {
   );
 }
 
-export default connect(state => ({product: state.singleProduct}))(Product);
+export default connect(
+  state => ({product: state.singleProduct}),
+  {addItem}
+) (Product);
