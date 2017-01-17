@@ -24,7 +24,10 @@ const reducer = (state = initialState, action) => {
 				...newState.items[id],
 				quantity: newState.items[id].quantity + 1
 			}
-			else newState.items[id] = action.item;
+			else newState.items[id] = {
+				...action.item,
+				quantity: 1
+			}
 			newState.subTotal += newState.items[id].price;
 			break;
 
