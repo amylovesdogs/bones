@@ -17,7 +17,6 @@ export const getProducts = (categoryId) => {
     } else {
       axios.get('/api/products/categories/'+categoryId)
       .then(response => {
-        console.log("got back: ", response.data);
         dispatch(receiveProducts(response.data));
       });
     }
