@@ -2,6 +2,7 @@
 
 const Sequelize = require('sequelize');
 const db = require('APP/db');
+const Product = db.model('products');
 
 const Order = db.define('order', {
   address: {
@@ -18,7 +19,7 @@ const Order = db.define('order', {
   totalPrice: Sequelize.INTEGER
 }, {
   instanceMethods: {
-    calculateTotal: function(products) {
+    calculateTotal: function() {
       this.totalPrice = products.reduce((total, product) => total + b.price, 0);
     }
   }
