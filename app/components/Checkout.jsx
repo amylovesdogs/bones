@@ -49,6 +49,15 @@ class Checkout extends Component{
 			</div>
 		);
 
+		const truncate = (number, digits) => {
+			return number.toFixed(digits);
+		};
+
+		const subTotal = truncate(cart.subTotal, 2);
+		const tax = truncate(cart.subTotal * 0.07, 2);
+		const total = truncate(cart.subTotal * 1.07, 2);
+
+
 		if (!Object.keys(cart.items).length) return empty;
 		else return (
 
@@ -82,15 +91,15 @@ class Checkout extends Component{
 						<tbody>
 							<tr>
 								<th className="col-md-2 text-center">Sub-total</th>
-								<td className="col-md-2 text-center">{cart.subTotal}</td>
+								<td className="col-md-2 text-center">{subTotal}</td>
 							</tr>
 							<tr>
 								<th className="col-md-2 text-center">Tax</th>
-								<td className="col-md-2 text-center">{cart.subTotal * 0.07}</td>
+								<td className="col-md-2 text-center">{tax}</td>
 							</tr>
 							<tr>
 								<th className="col-md-2 text-center">Total</th>
-								<td className="col-md-2 text-center">{cart.subTotal * 1.07}</td>
+								<td className="col-md-2 text-center">{total}</td>
 							</tr>
 							
 						</tbody>

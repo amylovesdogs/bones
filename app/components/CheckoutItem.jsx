@@ -48,8 +48,8 @@ class CheckoutItem extends Component {
 				  	</button>
 			  	</div>
 			  </td>
-			  <td className="col-md-1 text-center">{`$${item.price}`}</td>
-			 	<td className="col-md-1 text-center">{`$${item.quantity * item.price}`}</td>
+			  <td className="col-md-1 text-center">{`$${item.price / 100}`}</td>
+			 	<td className="col-md-1 text-center">{`$${item.quantity * item.price / 100}`}</td>
 			</tr>
 		);
 	}
