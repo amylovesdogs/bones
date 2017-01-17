@@ -35,13 +35,18 @@
 }
 
 .cart-empty {
-	
+
 }
 
 .btn-checkout {
-	
+
 }
 
 .dropdown:hover .dropdown-menu {
 	display: block;
+}
+
+.thumbnail>img {
+	width: 350px;
+	height: 250px
 }

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('APP/db');
 const Product = db.model('products');
+const Categories = db.model('categories');
 
 router.get('/', (req, res, next) => {
   Product.findAll()
@@ -12,6 +13,17 @@ router.get('/', (req, res, next) => {
 router.get('/:productId', (req, res, next) => {
   Product.findById(req.params.productId)
   .then(product => res.json(product))
+  .catch(next);
+});
+
+router.get('/categories/:categoryId', (req, res, next) => {
+  Product.findAll({
+    include: [{
+        model: Categories,
+        where: {id: req.params.categoryId}
+    }]
+  })
+  .then(products => res.json(products))
   .catch(next);
 });
 

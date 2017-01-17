@@ -1,22 +1,24 @@
 import React from 'react'
+import {connect} from 'react-redux';
 import {LinkContainer} from 'react-router-bootstrap';
 import {NavDropdown, MenuItem} from 'react-bootstrap';
 
-const CategoriesMenu = ({ categories }) => (
-	<NavDropdown title='Categories' id='categories'>
+const ProductMenu = ({ categories }) => (
+	<NavDropdown title='Products' id='product-categories'>
 		{
 			categories.map(category => (
-				<LinkContainer to={`/categories/${category.id}`} key={category.id}>
+				<LinkContainer to={`/products/categories/${category.id}`} key={category.id}>
 					<MenuItem>{category.name}</MenuItem>
 				</LinkContainer>
 			))
 		}
+		<LinkContainer to="/products" key="all">
+					<MenuItem>All</MenuItem>
+		</LinkContainer>
 	</NavDropdown>
 );
-
-import {connect} from 'react-redux';
 
 export default connect (
   ({ categories }) => ({ categories }),
   {},
-) (CategoriesMenu);
+) (ProductMenu);
