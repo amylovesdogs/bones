@@ -4,7 +4,6 @@ import {addItem} from  '../reducers/cart';
 import Reviews from '../components/Reviews';
 
 const Product = ({product, addItem}) => {
-  console.log(product);
 
   const reviewSection = product.reviews ? 
     <div>
