@@ -13,7 +13,7 @@ export default function (props) {
           products && products.map(product => (
             <div className="col-xs-4" key={ product.id }>
               <h5>{ product.name }</h5>
-              <Link className="thumbnail">
+              <Link className="thumbnail" to={`/products/${product.id}`}>
                 <img src={ product.photoURL }/>
               </Link>
               <div className="caption">
