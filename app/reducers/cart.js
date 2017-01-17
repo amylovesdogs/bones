@@ -1,11 +1,12 @@
 const initialState = {
 	items: {
-		1: {
-			id: 1,
+		0: {
+			id: 0,
 			name: 'BLAHBLAH',
+			description: 'Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs',
 			quantity: 1,
-			price: 349.99,
-			photoUrl: 'http://i2.kym-cdn.com/entries/icons/facebook/000/013/564/aP2dv.jpg'
+			price: 34999,
+			photoURL: 'http://i2.kym-cdn.com/entries/icons/facebook/000/013/564/aP2dv.jpg'
 		}
 	},
 	subTotal: 349.99
@@ -27,13 +28,13 @@ const reducer = (state = initialState, action) => {
 			else newState.items[id] = {
 				...action.item,
 				quantity: 1
-			}
-			newState.subTotal += newState.items[id].price;
+			};
+			newState.subTotal += newState.items[id].price / 100;
 			break;
 
 		case REMOVE_ITEM:
 			let item = newState.items[action.id];
-			newState.subTotal -= item.price * item.quantity;
+			newState.subTotal -= item.price * item.quantity / 100;
 			delete newState.items[action.id];
 			break;
 
@@ -43,12 +44,13 @@ const reducer = (state = initialState, action) => {
 				...newState.items[action.id],
 				quantity: action.quantity
 			}
-			newState.subTotal += newState.items[action.id].price * difference;
+			newState.subTotal += newState.items[action.id].price * difference / 100;
 			break;
 
 	};
 	return newState;
 };
+
 
 const ADD_ITEM = 'ADD_ITEM';
 export const addItem = item => ({
