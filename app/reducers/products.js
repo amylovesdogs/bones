@@ -1,4 +1,4 @@
-import { RECEIVE_PRODUCTS, RECEIVE_PRODUCT } from '../constants';
+import { RECEIVE_PRODUCTS } from '../constants';
 
 const initialProductState = {
   selected: {},
@@ -12,18 +12,13 @@ export default function (state = initialProductState, action) {
   switch (action.type) {
 
     case RECEIVE_PRODUCTS:
-      newState.list = action.products;
-      break;
-
-    case RECEIVE_PRODUCT:
-      newState.selected = action.product;
-      break;
+      return {
+        list: action.products
+      }
 
     default:
       return state;
 
   }
-
-  return newState;
 
 }

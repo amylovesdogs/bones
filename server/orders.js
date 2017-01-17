@@ -36,7 +36,6 @@ router.post('/', function(req, res, next) {
   }))
   .then(() => res.sendStatus(201))
   .catch(next);
-  
 });
 
 router.put('/:orderId', (req, res, next) => {

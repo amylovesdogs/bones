@@ -21,8 +21,9 @@ const onEnter = () => {
   store.dispatch(getCategories());
 };
 
-const onProductsEnter = () => {
-  store.dispatch(getProducts());
+const onProductsEnter = (nextState) => {
+  const categoryId = nextState.params.categoryId;
+  store.dispatch(getProducts(categoryId));
 }
 
 const onSingleProductEnter = (nextState) => {
@@ -37,9 +38,9 @@ render (
         <Route path="/login" component={Login}/>
         <Route path="/cart" component={Cart} />
         <Route path="/products" component={Products} onEnter={onProductsEnter}/>
-        <Route path="/checkout" component={Checkout}/>
-        <Route path="/products" component={Products}/>
+        <Route path="/products/categories/:categoryId" component={Products} onEnter={onProductsEnter}/>
         <Route path="products/:productId" component={SingleProductContainer} onEnter={onSingleProductEnter}/>
+        <Route path="/checkout" component={Checkout}/>
       </Route>
     </Router>
   </Provider>,

@@ -51,6 +51,7 @@ const reducer = (state = initialState, action) => {
 	return newState;
 };
 
+
 const ADD_ITEM = 'ADD_ITEM';
 export const addItem = item => ({
 	type: ADD_ITEM,

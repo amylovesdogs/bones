@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import CategoriesMenu from './CategoriesMenu';
+import ProductMenu from './ProductMenu';
 
 export default () => {
   return (
@@ -10,17 +10,15 @@ export default () => {
           <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
-            <span className="icon-bar"></span>                        
+            <span className="icon-bar"></span>
           </button>
-          <Link className="navbar-brand" to="/">Logo</Link>
+          <img src = "http://vignette2.wikia.nocookie.net/harrypotter/images/a/ac/Logo_HP.png/revision/latest?cb=20130804205525" className="logo"/>
         </div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
             <li className="active"><Link to="#">Home</Link></li>
-            <CategoriesMenu/>
-            <li><Link to="#">Products</Link></li>
+            <ProductMenu/>
             <li><Link to="#">Deals</Link></li>
-            <li><Link to="#">Stores</Link></li>
             <li><Link to="#">Contact</Link></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
