@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 const db = require('APP/db');
 const Category = require('./category');
 const Review = require('./review');
+const User = require('./user');
 
 const Product = db.define('products', {
   name: {
@@ -55,7 +56,7 @@ const Product = db.define('products', {
       };
       
       return this.findById(productId, {
-        include: [Review]
+        include: [{model: Review, include: [{model: User, as: 'Reviewer'}]}]
       })
       .then(product => product.get({plain: true}))
       .then(product => {
