@@ -6,12 +6,21 @@ const Cart = ({ cart }) => {
 
 	const emptyCart = (
 		<tr>
-			<td className="cart-empty">
-				<img src="http://www.inmotionhosting.com/support/images/stories/icons/ecommerce/empty-cart-dark.png"/>
+			<td className="text-center" colSpan="4">
 				<h3>Your cart is currently empty</h3>
+				<img src="http://simpleicon.com/wp-content/uploads/shopping-cart-8.svg" className="cart-empty-photo"/>
 			</td>
 		</tr>
 	);
+
+	const truncate = (number, digits) => {
+		return number.toFixed(digits);
+	};
+
+	const subTotal = truncate(cart.subTotal, 2);
+	const tax = truncate(cart.subTotal * 0.07, 2);
+	const total = truncate(cart.subTotal * 1.07, 2);
+
 
 	return (
 
@@ -21,10 +30,10 @@ const Cart = ({ cart }) => {
 
 			  <thead>
 			    <tr>
-			      <th className="col-md-3 text-center">Item(s)</th>
+			      <th className="col-md-2 text-center">Item(s)</th>
 			      <th className="col-md-2 text-center">Quantity</th>
-			      <th className="col-md-2 text-center">Unit Price</th>
-			      <th className="col-md-2 text-center">Sub-total</th>
+			      <th className="col-md-1 text-center">Unit Price</th>
+			      <th className="col-md-1 text-center">Sub-total</th>
 			    </tr>
 			  </thead>
 
@@ -42,27 +51,29 @@ const Cart = ({ cart }) => {
 
 			</table>
 
-			<table className="table table-bordered cart-side-table">
+			<div className="cart-side-table col-md-4">
+				<table className="table table-bordered">
 
-				<tbody>
-					<tr>
-						<th className="col-md-4">Sub-total</th>
-						<td className="col-md-2">{cart.subTotal}</td>
-					</tr>
-					<tr>
-						<th className="col-md-4">Tax</th>
-						<td className="col-md-2">{cart.subTotal * 0.07}</td>
-					</tr>
-					<tr>
-						<th className="col-md-4">Total</th>
-						<td className="col-md-2">{cart.subTotal * 1.07}</td>
-					</tr>
-					
-				</tbody>
+					<tbody>
+						<tr>
+							<th className="col-md-2 text-center">Sub-total</th>
+							<td className="col-md-2 text-center">{subTotal}</td>
+						</tr>
+						<tr>
+							<th className="col-md-2 text-center">Tax</th>
+							<td className="col-md-2 text-center">{tax}</td>
+						</tr>
+						<tr>
+							<th className="col-md-2 text-center">Total</th>
+							<td className="col-md-2 text-center">{total}</td>
+						</tr>
+						
+					</tbody>
 
-			</table>
+				</table>
 
-			<Link className="btn btn-success btn-checkout" to="/checkout">Checkout</Link>
+				<Link className="btn btn-success" style={{width: "100%"}} to="/checkout">Checkout</Link>
+			</div>
 
 		</div>
 
