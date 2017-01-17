@@ -81,15 +81,5 @@ export const placeOrder = (order) => {
   };
 };
 
-export const testOrderRoute = () => {
-	return dispatch => {
-		axios.post('/api/orders', {
-			address: '123 Sesame St.',
-			email: 'amroms@gmail.com',
-			items: [{id: 3, quantity: 1}, {id: 5, quantity: 2}]
-		})
-		.then(console.log, console.error);
-	}
-}
 
 export default reducer;
