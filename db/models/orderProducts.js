@@ -15,7 +15,7 @@ const OrderProducts = db.define('order_products', {
             order_id: orderId
           }
         })
-        .then(products => products.reduce((total, product) => total + product.price, 0))
+        .then(products => products.reduce((total, product) => total + product.price * product.quantity, 0))
         .then(total => resolve(total))
         .catch(reject);
       });
