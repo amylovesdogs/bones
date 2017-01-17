@@ -17,9 +17,7 @@ router.get('/:orderId', (req, res, next) =>  {
 router.post('/', function(req, res, next) {
 
   let createdOrder, productIds;
-  productIds = Object.keys(req.body.items).map(key => {
-    return req.body.items[key].id;
-  })
+  productIds = Object.keys(req.body.items);
 
   Order.create({
     address: req.body.address,
@@ -27,13 +25,17 @@ router.post('/', function(req, res, next) {
   })
   .then(order => createdOrder = order)
   .then(() => db.Promise.map(productIds, productId => Product.findById(productId)))
-  .then(products => db.Promise.map(products, product => createdOrder.addProduct(product, {price: product.price})))
+  .then(products => (
+    db.Promise.map(products, product => createdOrder.addProduct(product, {
+    price: product.price,
+    quantity: req.body.items[product.id].quantity
+  }))))
   .then(() => OrderProducts.calculateTotal(createdOrder.id))
-  .then(total => createdOrder.update({
-    totalPrice: total
+  .then(totalPrice => createdOrder.update({
+    totalPrice
   }))
   .then(() => res.sendStatus(201))
-  .catch(console.log);
+  .catch(next);
 });
 
 router.put('/:orderId', (req, res, next) => {

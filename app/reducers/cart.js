@@ -12,6 +12,7 @@ const initialState = {
 };
 
 import axios from 'axios';
+import {browserHistory} from 'react-router';
 
 const reducer = (state = initialState, action) => {
 	let newState = Object.assign({}, state);
@@ -69,7 +70,9 @@ const PLACE_ORDER = 'PLACE_ORDER';
 export const placeOrder = (order) => {
   return dispatch => {
     axios.post('/api/orders', order)
-    	.then(res => res.data)
+    .then(res => {
+    	browserHistory.push('/checkout/success');
+    })
   };
 };
 
