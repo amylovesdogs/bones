@@ -4,7 +4,7 @@ const products =
 [
   {
   	name: 'Nimbus 2000',
-	  description: 'A fine quiditch starter model.',
+	  description: 'A fine quidditch starter model.',
 	  price: 34999,
 	  quantity: 100,
 	  photoURL: 'http://vignette4.wikia.nocookie.net/harrypotter/images/0/0f/Nimbus_2000_1.jpg/revision/latest?cb=20150530185551',
@@ -12,7 +12,7 @@ const products =
 	},
 	{
     name: 'Nimbus 2001',
-    description: 'Moving up a bit. Intermediate quiditch model.',
+    description: 'Moving up a bit. Intermediate quidditch model.',
     price: 44999,
     quantity: 100,
     photoURL: 'http://vignette4.wikia.nocookie.net/harrypotter/images/0/0f/Nimbus_2000_1.jpg/revision/latest?cb=20150530185551',
@@ -20,7 +20,7 @@ const products =
   },
 	{
     name: 'Firebolt',
-    description: 'For the professional or advanced amateur quiditch player.',
+    description: 'For the professional or advanced amateur quidditch player.',
     price: 75000,
     quantity: 100,
     photoURL: 'http://vignette3.wikia.nocookie.net/harrypotter/images/7/74/Firebolt.jpg/revision/latest?cb=20141122220040',
@@ -38,21 +38,21 @@ const products =
 	 description: 'Learn the Basics of Java',
 	 price: 1182,
 	 quantity: 10,
-	 photoURL: 'http://amazon.com',
+	 photoURL: 'https://images-na.ssl-images-amazon.com/images/I/51lZBHKsmjL.jpg',
 	 category: 'Muggle Stuff'
   },
   {name: ' A Complete Guide For Beginners',
 	 description: 'Become An Expert In Python Programming ',
 	 price: 1438,
 	 quantity: 15,
-	 photoURL: 'http://amazon.com',
+	 photoURL: 'https://images-na.ssl-images-amazon.com/images/I/518HWeONOhL.jpg',
 	 category: 'Muggle Stuff'
 	},
   {name: "Ry's Git Tutorial",
 	 description: 'Git is a free version control system',
 	 price: 199,
 	 quantity: 25,
-	 photoURL: 'http://amazon.com',
+	 photoURL: 'https://images-na.ssl-images-amazon.com/images/I/41BMP%2B44bJL.jpg',
 	 category: 'Muggle Stuff'
 	}
 ]
