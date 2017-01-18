@@ -1,15 +1,6 @@
 const initialState = {
-	items: {
-		0: {
-			id: 0,
-			name: 'BLAHBLAH',
-			description: 'Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs Da blahiest of blahs',
-			quantity: 1,
-			price: 34999,
-			photoURL: 'http://i2.kym-cdn.com/entries/icons/facebook/000/013/564/aP2dv.jpg'
-		}
-	},
-	subTotal: 349.99
+	items: {},
+	subTotal: 0
 };
 
 import axios from 'axios';
@@ -80,5 +71,6 @@ export const placeOrder = (order) => {
     })
   };
 };
+
 
 export default reducer;

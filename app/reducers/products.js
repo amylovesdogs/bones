@@ -1,7 +1,6 @@
 import { RECEIVE_PRODUCTS } from '../constants';
 
 const initialProductState = {
-  selected: {},
   list: []
 };
 

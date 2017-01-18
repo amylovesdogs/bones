@@ -13,11 +13,11 @@ class Checkout extends Component{
 	}
 
 	getFullAddress() {
-		const keys = ['name', 'street', 'city', 'state', 'country'];
+		const keys = ['street', 'city', 'state', 'country'];
 		let fullAddress = keys.map(key => {
-			this.state[key];
+			return this.state[key];
 		})
-		return keys.join(' ');
+		return fullAddress.join(' ');
 	}
 
 	handleChange(key, val) {
@@ -27,9 +27,16 @@ class Checkout extends Component{
 	}
 
 	handleSubmit() {
-		let address = this.getFullAddress();
-		let email = this.state.email;
-		let items = this.props.cart.items;
+		const address = this.getFullAddress();
+		const email = this.state.email;
+		const items = Object.keys(this.props.cart.items).map(key => {
+			const item = this.props.cart.items[key];
+			return {
+				id: item.id,
+				quantity: item.quantity
+			}
+		})
+		console.log(items);
 		const order = {
 			address,
 			email,
@@ -48,6 +55,15 @@ class Checkout extends Component{
 				<Link className="btn btn-success" to="/cart">Back to cart</Link>
 			</div>
 		);
+
+		const truncate = (number, digits) => {
+			return number.toFixed(digits);
+		};
+
+		const subTotal = truncate(cart.subTotal, 2);
+		const tax = truncate(cart.subTotal * 0.07, 2);
+		const total = truncate(cart.subTotal * 1.07, 2);
+
 
 		if (!Object.keys(cart.items).length) return empty;
 		else return (
@@ -68,7 +84,7 @@ class Checkout extends Component{
 				  <tbody>
 						{
 							Object.keys(cart.items).map(key => {
-								let item = cart.items[key];
+								const item = cart.items[key];
 								return <CheckoutItem item={item} key={item.id}/>
 							})
 						}
@@ -82,15 +98,15 @@ class Checkout extends Component{
 						<tbody>
 							<tr>
 								<th className="col-md-2 text-center">Sub-total</th>
-								<td className="col-md-2 text-center">{cart.subTotal}</td>
+								<td className="col-md-2 text-center">{subTotal}</td>
 							</tr>
 							<tr>
 								<th className="col-md-2 text-center">Tax</th>
-								<td className="col-md-2 text-center">{cart.subTotal * 0.07}</td>
+								<td className="col-md-2 text-center">{tax}</td>
 							</tr>
 							<tr>
 								<th className="col-md-2 text-center">Total</th>
-								<td className="col-md-2 text-center">{cart.subTotal * 1.07}</td>
+								<td className="col-md-2 text-center">{total}</td>
 							</tr>
 							
 						</tbody>

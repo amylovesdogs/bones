@@ -118,4 +118,13 @@ describe('/api/products', () => {
       });
   })
 
+  it('gets 3 random products', () => {
+    return request(app)
+      .get(`/api/products/trending`)
+      .expect(200)
+      .expect((res) => {
+        assert.lengthOf(res.body, 2);
+      });
+  })
+
 })

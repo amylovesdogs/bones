@@ -6,9 +6,21 @@ const Categories = db.model('categories');
 
 const Review = db.model('reviews');
 
-
 router.get('/', (req, res, next) => {
   Product.findAll()
+  .then(products => res.json(products))
+  .catch(next);
+});
+
+router.get('/trending', (req, res, next) => {
+  // Product.findAll({
+  //   include: [{model: Review, include: [{model: User, as: 'Reviewer'}]}],
+  //   order: [
+  //     Sequelize.fn('RANDOM')
+  //   ],
+  //   limit: 3
+  // })
+  Product.getTrendingProducts()
   .then(products => res.json(products))
   .catch(next);
 });
@@ -55,6 +67,5 @@ router.delete('/:productId', (req, res, next) => {
   .then(() => res.sendStatus(204))
   .catch(next);
 })
-
 
 module.exports = router;
