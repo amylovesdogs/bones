@@ -54,6 +54,51 @@ const products =
 	 quantity: 25,
 	 photoURL: 'https://pbs.twimg.com/media/Cr7mS_OWcAA7Hzt.jpg',
 	 category: 'Muggle Stuff'
+	},
+	{name: "Harry Potter's Wand",
+	 description: 'Wood: holly, Core: phoenix feather, donated by Fawkes, phoenix owned by Albus Dumbledore, Length: 11 inches Rigidity: Supple',
+	 price: 25099,
+	 quantity: 1,
+	 photoURL: "http://vignette2.wikia.nocookie.net/harrypotter/images/6/63/Harry_Potter's_Wand.png/revision/latest?cb=20150115092133",
+	 category: 'Wands'
+	},
+	{name: "Hermione Grangers's Wand",
+	 description: 'Wood: vine, Core: dragon heartstring, Length: 10 3/4 inches',
+	 price: 25099,
+	 quantity: 1,
+	 photoURL: "http://img.fortheloveofharry.com/2015/08/Rubies-Hermione-Granger-Wand.jpg",
+	 category: 'Wands'
+	},
+	{name: "Ron Weasleys's First Wand",
+	 description: 'Wood: ash, Core: Unicorn hair, Length: 12 inches. A little broken',
+	 price: 25099,
+	 quantity: 1,
+	 photoURL: "https://secure.polyvoreimg.com/cgi/img-thing/size/l/tid/32107926.jpg",
+	 category: 'Wands'
+	},
+	{
+	 name: "Unicorn Hair",
+	 description: 'Certified authentic and pure',
+	 price: 15099,
+	 quantity: 25,
+	 photoURL: "http://vignette1.wikia.nocookie.net/harrypotter/images/3/3f/Unicorn-tail-hair-lrg.png/revision/latest?cb=20161207025952",
+	 category: 'Potion Ingredients'
+	},
+	{
+	 name: "Bezoar",
+	 description: 'Taken from the stomach of a goat. Antidote to most poisons',
+	 price: 12099,
+	 quantity: 32,
+	 photoURL: "http://vignette4.wikia.nocookie.net/harrypotter/images/a/a4/BezoarPottemore.png/revision/latest?cb=20130805123032",
+	 category: 'Potion Ingredients'
+	},
+	{
+	 name: "Occamy Egg",
+	 description: 'Made of pure silver. The shell is an essential ingredient for Felix Felicis.',
+	 price: 120099,
+	 quantity: 1,
+	 photoURL: "http://vignette3.wikia.nocookie.net/harrypotter/images/4/42/OccamyEgg.png/revision/latest/scale-to-width-down/250?cb=20140706022011",
+	 category: 'Potion Ingredients'
 	}
 ]
 
