@@ -15,25 +15,7 @@ router.get('/:orderId', (req, res, next) =>  {
 });
 
 router.post('/', function(req, res, next) {
-
-  let createdOrder, productIds;
-  productIds = Object.keys(req.body.items);
-
-  Order.create({
-    address: req.body.address,
-    email: req.body.email
-  })
-  .then(order => createdOrder = order)
-  .then(() => db.Promise.map(productIds, productId => Product.findById(productId)))
-  .then(products => (
-    db.Promise.map(products, product => createdOrder.addProduct(product, {
-    price: product.price,
-    quantity: req.body.items[product.id].quantity
-  }))))
-  .then(() => OrderProducts.calculateTotal(createdOrder.id))
-  .then(totalPrice => createdOrder.update({
-    totalPrice
-  }))
+  Order.placeOrder(req.body.address, req.body.email, req.body.items)
   .then(() => res.sendStatus(201))
   .catch(next);
 });
