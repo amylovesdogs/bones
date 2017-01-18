@@ -10,7 +10,7 @@ const CheckoutForm = (props) => {
 
   return (
 
-    <div className="well col-md-4">
+    <div className="well col-md-6">
       <h2 className="text-center" style={{marginTop: "0px", marginBottom: "20px"}}>Shipping Address</h2>
       <form className="form-horizontal">
         <fieldset>

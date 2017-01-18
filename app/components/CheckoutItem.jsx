@@ -32,21 +32,19 @@ class CheckoutItem extends Component {
 				  	<div>{item.name}</div>
 			  </td>
 			  <td className="col-md-2 text-center">
-			  	<input type="numeric" defaultValue={item.quantity} onChange={this.handleQuantityChange}/>
-			  	<div>
-				  	<button
-				  		style={{margin: "10px"}}
-				  		className="btn btn-success"
-				  		onClick={() => updateQuantity(item.id, this.state.quantity)}>
-				  		Update
-				  	</button>
-				  	<button 
-				  		style={{margin: "10px"}}
-				  		className="btn btn-danger cart-item-remove-btn"
-				  		onClick={() => removeItem(item.id)}>
-				  		Remove
-				  	</button>
-			  	</div>
+			  	<input type="number" defaultValue={item.quantity} onChange={this.handleQuantityChange}/>
+			  	<button
+			  		style={{margin: "5px", marginLeft: "10px"}}
+			  		className="btn btn-success btn-xs"
+			  		onClick={() => updateQuantity(item.id, this.state.quantity)}>
+			  		<span className="glyphicon glyphicon-ok"></span>
+			  	</button>
+			  	<button 
+			  		style={{margin: "5px"}}
+			  		className="btn btn-danger btn-xs"
+			  		onClick={() => removeItem(item.id)}>
+			  		<span className="glyphicon glyphicon-remove"></span>
+			  	</button>
 			  </td>
 			  <td className="col-md-1 text-center">{`$${item.price / 100}`}</td>
 			 	<td className="col-md-1 text-center">{`$${item.quantity * item.price / 100}`}</td>

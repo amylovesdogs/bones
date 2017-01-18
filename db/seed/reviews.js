@@ -42,7 +42,7 @@ const seedReviews = () => {
 			})
 		})
 		.catch (err => {
-				console.log(`error setting up reveiws: ${err}`);
+				console.log(`error setting up reviews: ${err}`);
 		})
 	})
 }

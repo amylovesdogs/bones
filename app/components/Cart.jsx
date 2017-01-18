@@ -1,6 +1,6 @@
 import React from 'react';
 import CartItem from './CartItem';
-import {Link} from 'react-router';
+import {browserHistory} from 'react-router';
 
 const Cart = ({ cart }) => {
 
@@ -21,6 +21,7 @@ const Cart = ({ cart }) => {
 	const tax = truncate(cart.subTotal * 0.07, 2);
 	const total = truncate(cart.subTotal * 1.07, 2);
 
+	const notEmpty = Object.keys(cart.items).length !== 0;
 
 	return (
 
@@ -39,7 +40,7 @@ const Cart = ({ cart }) => {
 
 			  <tbody>
 					{
-						Object.keys(cart.items).length > 0 && 
+						notEmpty && 
 						Object.keys(cart.items).map(key => {
 							let item = cart.items[key];
 							return <CartItem item={item} key={item.id}/>
@@ -52,6 +53,7 @@ const Cart = ({ cart }) => {
 			</table>
 
 			<div className="cart-side-table col-md-4">
+
 				<table className="table table-bordered">
 
 					<tbody>
@@ -72,7 +74,15 @@ const Cart = ({ cart }) => {
 
 				</table>
 
-				<Link className="btn btn-success" style={{width: "100%"}} to="/checkout">Checkout</Link>
+				<button className="btn btn-success" 
+					style={{width: "100%"}} 
+					disabled={!notEmpty} 
+					onClick={() => {
+						browserHistory.push("/checkout")}
+					}>
+					Checkout
+				</button>
+
 			</div>
 
 		</div>

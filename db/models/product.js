@@ -45,23 +45,37 @@ const Product = db.define('products', {
 		}]
 	},
   classMethods: {
+    calculateAverageReview: function(reviews) {
+      if (reviews) {
+        const averageReview = reviews.reduce((total, review) => total + review.rating, 0) / reviews.length;
+        return Math.round(averageReview);
+      }
+      return null;
+    },
     getProductWithAverageReview: function(productId) {
-      
-      const calculateAverageReview = reviews => {
-        if (reviews) {
-          const averageReview = reviews.reduce((total, review) => total + review.rating, 0) / reviews.length;
-          return Math.round(averageReview);
-        }
-        return null;
-      };
-      
       return this.findById(productId, {
         include: [{model: Review, include: [{model: User, as: 'Reviewer'}]}]
       })
       .then(product => product.get({plain: true}))
       .then(product => {
-        product.averageReview = calculateAverageReview(product.reviews);
+        product.averageReview = this.calculateAverageReview(product.reviews);
         return product;
+      });
+    },
+    getTrendingProducts: function() {
+      return this.findAll({
+        include: [{model: Review, include: [{model: User, as: 'Reviewer'}]}],
+        order: [
+          Sequelize.fn('RANDOM')
+        ],
+        limit: 3
+      })
+      .then(products => db.Promise.map(products, product => product.get({plain: true})))
+      .then(products => {
+        return products.map(product => {
+          product.averageReview = this.calculateAverageReview(product.reviews);
+          return product;
+        });
       });
     }
   }

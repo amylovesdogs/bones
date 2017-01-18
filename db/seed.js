@@ -5,7 +5,6 @@ const seedCategories = require('./seed/categories');
 const seedProducts = require('./seed/products');
 const seedReviews = require('./seed/reviews');
 
-
 db.didSync
   .then(() => db.sync({force: true}))
   .then(seedUsers)

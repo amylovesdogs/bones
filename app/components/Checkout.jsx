@@ -13,11 +13,11 @@ class Checkout extends Component{
 	}
 
 	getFullAddress() {
-		const keys = ['name', 'street', 'city', 'state', 'country'];
+		const keys = ['street', 'city', 'state', 'country'];
 		let fullAddress = keys.map(key => {
-			this.state[key];
+			return this.state[key];
 		})
-		return keys.join(' ');
+		return fullAddress.join(' ');
 	}
 
 	handleChange(key, val) {
@@ -27,9 +27,16 @@ class Checkout extends Component{
 	}
 
 	handleSubmit() {
-		let address = this.getFullAddress();
-		let email = this.state.email;
-		let items = this.props.cart.items;
+		const address = this.getFullAddress();
+		const email = this.state.email;
+		const items = Object.keys(this.props.cart.items).map(key => {
+			const item = this.props.cart.items[key];
+			return {
+				id: item.id,
+				quantity: item.quantity
+			}
+		})
+		console.log(items);
 		const order = {
 			address,
 			email,
@@ -77,7 +84,7 @@ class Checkout extends Component{
 				  <tbody>
 						{
 							Object.keys(cart.items).map(key => {
-								let item = cart.items[key];
+								const item = cart.items[key];
 								return <CheckoutItem item={item} key={item.id}/>
 							})
 						}
