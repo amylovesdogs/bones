@@ -23,8 +23,9 @@ export default function (props) {
                 <img src={ product.photoURL }/>
               </Link>
               <div className="caption">
-                <span>{ product.description} </span>
+                <div className="description">{ product.description}</div>
               </div>
+              <h2>${product.price / 100}</h2>
               <div className="caption">
                 <button type="button" className="btn btn-success" onClick={() => addToCart(product)}>Add to Cart</button>
               </div>

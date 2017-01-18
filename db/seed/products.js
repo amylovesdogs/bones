@@ -23,17 +23,9 @@ const products =
     description: 'For the professional or advanced amateur quidditch player.',
     price: 75000,
     quantity: 100,
-    photoURL: 'http://vignette3.wikia.nocookie.net/harrypotter/images/7/74/Firebolt.jpg/revision/latest?cb=20141122220040',
+    photoURL: 'https://www.elitefts.com/wp/wp-content/uploads/2011/10/795365_92276264.jpg',
 		category: 'Broomsticks'
   },
-  {
-  	name: 'Pencil',
-	  description: 'It\s a pencil',
-	  price: 99,
-	  quantity: 999,
-	  photoURL: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Number-2-pencil.jpg/2560px-Number-2-pencil.jpg',
-	  category: 'Muggle Stuff'
-	},
   {name: 'Computer Programming for Beginners',
 	 description: 'Learn the Basics of Java',
 	 price: 1182,

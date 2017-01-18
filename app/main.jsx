@@ -12,18 +12,23 @@ import Cart from './components/Cart'
 import Products from './containers/ProductsContainer';
 import Checkout from './components/Checkout';
 import Login from './components/Login';
+import Success from './components/Success';
 import SingleProductContainer from './containers/SingleProductContainer';
 
 import { getCategories } from './reducers/categories';
-import { getProducts, getProductFromId } from './action-creators/products';
+import { getProducts, getProductsByCategoryId, getProductFromId } from './action-creators/products';
 
 const onEnter = () => {
   store.dispatch(getCategories());
 };
 
-const onProductsEnter = (nextState) => {
+const onProductsEnter = () => {
+  store.dispatch(getProducts());
+}
+
+const onProductsByCategoryEnter = (nextState) => {
   const categoryId = nextState.params.categoryId;
-  store.dispatch(getProducts(categoryId));
+  store.dispatch(getProductsByCategoryId(categoryId));
 }
 
 const onSingleProductEnter = (nextState) => {
@@ -38,9 +43,10 @@ render (
         <Route path="/login" component={Login}/>
         <Route path="/cart" component={Cart} />
         <Route path="/products" component={Products} onEnter={onProductsEnter}/>
-        <Route path="/products/categories/:categoryId" component={Products} onEnter={onProductsEnter}/>
-        <Route path="products/:productId" component={SingleProductContainer} onEnter={onSingleProductEnter}/>
+        <Route path="/products/categories/:categoryId" component={Products} onEnter={onProductsByCategoryEnter}/>
+        <Route path="/products/:productId" component={SingleProductContainer} onEnter={onSingleProductEnter}/>
         <Route path="/checkout" component={Checkout}/>
+        <Route path="/checkout/success" component={Success}/>
       </Route>
     </Router>
   </Provider>,

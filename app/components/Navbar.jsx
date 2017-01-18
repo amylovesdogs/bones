@@ -4,7 +4,7 @@ import ProductMenu from './ProductMenu';
 
 export default () => {
   return (
-    <nav className="navbar navbar-inverse">
+    <nav className="navbar navbar-inverse navbar-static-top">
       <div className="container-fluid">
         <div className="navbar-header">
           <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -18,8 +18,8 @@ export default () => {
           <ul className="nav navbar-nav">
             <li className="active"><Link to="#">Home</Link></li>
             <ProductMenu/>
-            <li><Link to="#">Deals</Link></li>
-            <li><Link to="#">Contact</Link></li>
+            <li><Link to="/deals">Deals</Link></li>
+            <li><Link to="/contacts">Contact</Link></li>
           </ul>
           <ul className="nav navbar-nav navbar-right">
             <li><Link to="/login"><span className="glyphicon glyphicon-user"></span> Login</Link></li>

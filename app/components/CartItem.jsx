@@ -31,7 +31,9 @@ class CartItem extends Component {
 			<tr>
 			  <td className="col-md-2">
     			<div className="text-center">
-  	  			<img src={item.photoURL} className="cart-item-photo" style={{margin: "5px"}}></img>
+	    			<Link to={`/products/${item.id}`}>
+	    				<img src={item.photoURL} className="cart-item-photo" style={{margin: "5px"}}></img>
+	    			</Link>
   	  			<Link to={`/products/${item.id}`} style={{margin: "5px"}}>{item.name}</Link>
     			</div>
 			  </td>
@@ -47,7 +49,7 @@ class CartItem extends Component {
 				  	</button>
 				  	<button 
 				  		style={{margin: "10px"}}
-				  		className='btn btn-danger cart-item-remove-btn'
+				  		className='btn btn-danger'
 				  		onClick={() => removeItem(item.id)}>
 				  		Remove
 				  	</button>
