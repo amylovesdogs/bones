@@ -12,7 +12,9 @@ export default () => {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <img src = "http://vignette2.wikia.nocookie.net/harrypotter/images/a/ac/Logo_HP.png/revision/latest?cb=20130804205525" className="logo"/>
+          <Link to="#">
+            <img src="http://vignette2.wikia.nocookie.net/harrypotter/images/a/ac/Logo_HP.png/revision/latest?cb=20130804205525" className="logo"/>
+          </Link>
         </div>
         <div className="collapse navbar-collapse" id="myNavbar">
           <ul className="nav navbar-nav">
